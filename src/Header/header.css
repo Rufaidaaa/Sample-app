@@ -1,0 +1,17 @@
+.is-sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    /* z-index: 999; */
+    /* box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%); */
+    background-color: rebeccapurple !important;
+    /* animation: 500ms ease-in-out 0s normal none 1 running fadeInDown; */
+    padding-top: 30px;
+    padding-bottom: 0px;
+    height: 100px;
+}

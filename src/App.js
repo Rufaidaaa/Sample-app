@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import React, { useState, useEffect } from 'react'
+import Home from './Home'
+import Login from './Auth/SignIn'
+import SignUp  from './Auth/SignUp'
+import Firebase from './Config/firebase';
+import Container from '@mui/material/Container';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { AuthProvider} from './Context'
+import Cookies from 'js-cookie';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+ 
+  const [auth, setAuth] = useState(false);
+
+//   function readCookie(){
+//     const email =Cookies.get("email")
+//     const pass = Cookies.get("password")
+//     if(email && pass){
+//       setAuth(true);
+//     }
+// }
+// useEffect(() =>{
+//   readCookie()
+// }, [])
+    return (
+      
+      <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ maxHeight: "100vh" }}
+    >
+       <div className="w-100" style={{ maxWidth: "400px"}}>
+         <BrowserRouter>
+         <AuthProvider>
+           <Routes>
+             <Route path ="/" element= {<Home/>}/>
+          <Route path = "/signup" element ={<SignUp/>} />
+          <Route path = "/login" element ={<Login/>}/>
+           </Routes>
+           </AuthProvider>
+           </BrowserRouter>
+        
+       </div>
+      </Container>
+     
+    );
+   
+};
 
 export default App;
+
